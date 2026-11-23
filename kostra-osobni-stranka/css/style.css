@@ -1,0 +1,266 @@
+/* ===== Základní proměnné (světlý režim – WCAG AA kontrast) ===== */
+:root {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --text: #1a1a1a;        /* kontrast ~16:1 */
+  --text-muted: #4a4a4a;  /* kontrast ~8.9:1 */
+  --accent: #0056b3;      /* kontrast ~7.2:1 */
+  --border: #d0d7de;
+  --focus: #005fcc;
+
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --radius: 0.5rem;
+}
+
+/* ===== Reset a ochrana proti vodorovnému posouvání ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* 1rem = výchozí velikost v prohlížeči (obvykle 16px) */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  overflow-wrap: break-word;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ===== Přístupnost: fokus a skip link ===== */
+:focus-visible {
+  outline: 0.1875rem solid var(--focus);
+  outline-offset: 0.1875rem;
+  border-radius: 0.25rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -6rem;
+  left: var(--space-md);
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--text);
+  color: var(--surface);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: var(--space-md);
+}
+
+/* ===== Mobilní layout (Mobile-first) ===== */
+.site-header,
+main,
+footer {
+  width: 100%;
+  max-width: 70rem;
+  margin-inline: auto;
+  padding: var(--space-md);
+}
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  margin-block: 0 var(--space-sm);
+}
+
+h2 {
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  margin-block: 0 var(--space-md);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-block: 0 var(--space-sm);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-md);
+}
+
+.card {
+  background-color: var(--surface);
+  border: 0.0625rem solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+/* Tabulka bezpečná proti přetečení na malém mobilu */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+  margin-top: var(--space-md);
+}
+
+th,
+td {
+  padding: 0.75rem;
+  border: 0.0625rem solid var(--border);
+  text-align: left;
+}
+
+th {
+  background-color: var(--bg);
+}
+
+/* ===== Responzivní breakpointy ===== */
+
+@media (min-width: 40em) {
+  .site-header,
+  main,
+  footer {
+    padding: var(--space-lg);
+  }
+
+  .card {
+    padding: var(--space-lg);
+  }
+
+  #projekty {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  #projekty > h2,
+  #projekty > h3,
+  #projekty > table {
+    grid-column: 1 / -1;
+  }
+
+  #projekty .card {
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 60em) {
+  #projekty {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  table {
+    display: table; /* na desktopu už není potřeba scrollovat */
+  }
+}
+
+@media (min-width: 80em) {
+  .site-header,
+  main,
+  footer {
+    max-width: 75rem;
+  }
+
+  body {
+    font-size: 1.0625rem;
+  }
+}
+
+/* ===== Uživatelské preference a přístupnost ===== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --surface: #1e1e1e;
+    --text: #f1f1f1;        /* kontrast ~16:1 */
+    --text-muted: #c2c2c2;  /* kontrast ~10:1 */
+    --accent: #6cb4ff;      /* kontrast ~8.5:1 */
+    --border: #3a3a3a;
+    --focus: #8ac4ff;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #000000;
+    --accent: #0000ee;
+    --border: #000000;
+  }
+
+  .card,
+  th,
+  td {
+    border-width: 0.125rem;
+  }
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .card,
+  .skip-link,
+  .site-header {
+    opacity: 1;
+    backdrop-filter: none;
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --bg: Canvas;
+    --surface: Canvas;
+    --text: CanvasText;
+    --accent: LinkText;
+    --border: CanvasText;
+    --focus: Highlight;
+  }
+
+  .card,
+  .skip-link {
+    border: 0.125rem solid CanvasText;
+  }
+
+  :focus-visible {
+    outline: 0.1875rem solid Highlight;
+  }
+}
