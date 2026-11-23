@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- TODO (tmavý režim): po přidání tmavého schématu změňte content na "light dark" -->
-  <meta name="color-scheme" content="light">
-  <title>TODO: Jméno Příjmení – osobní stránka</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Petr Pospíchal – osobní stránka</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#obsah">Přejít na obsah</a>
 
   <header class="site-header">
-    <h1>TODO: Jméno Příjmení</h1>
-    <p>TODO: jedna věta o vás.</p>
+    <h1>Petr Pospíchal</h1>
+    <p>Test má 4 otázky, 4 minuty, 4 odpovědi.</p>
     <nav aria-label="Hlavní navigace">
       <ul>
         <li><a href="#o-mne">O mně</a></li>
@@ -28,52 +28,81 @@
 
     <section id="o-mne" class="card" aria-labelledby="o-mne-nadpis">
       <h2 id="o-mne-nadpis">O mně</h2>
-      <!-- TODO: vložte fotku nebo obrázek do složky img/, odkomentujte řádek níže
-           a vyplňte výstižný alt (u čistě dekorativního obrázku alt prázdný):
-      -->
-      <p>TODO: pár vět o vás.</p>
+      <img src="img/motýlek.jpg" alt="">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, id corporis? Ipsa nostrum hic cumque sunt, fugit iure repellat adipisci autem quam nam deleniti expedita esse ad consequuntur asperiores sint.</p>
     </section>
 
     <section id="projekty" aria-labelledby="projekty-nadpis">
       <h2 id="projekty-nadpis">Projekty</h2>
-      <!-- TODO: alespoň tři položky, každá s obrázkem. Zkopírujte celý prvek article a upravte ho. -->
-      <article class="card">
-        <h3>TODO: název projektu</h3>
-        <p>TODO: stručný popis projektu.</p>
-      </article>
-    </section>
 
-    <section id="dovednosti" aria-labelledby="dovednosti-nadpis">
-      <h2 id="dovednosti-nadpis">Dovednosti</h2>
+      <article class="card">
+        <h3>EcoPulse</h3>
+        <p>Projekt AI je iniciativa nebo vývojový proces zaměřený na tvorbu a nasazení systému umělé inteligence pro řešení konkrétního problému nebo automatizaci úkolů.</p>
+        <img src="img/EcoPulse.jpg" alt="Izometrická 3D ilustrace ekologické platformy EcoPulse se zářícím zeleným listem v centru, propojeným s analytikou uhlíkové stopy, obnovitelnými zdroji energie a zelenými datovými centry.">
+      </article>
+
+      <article class="card">
+        <h3>NexaFlow</h3>
+        <p>NexaFlow je fiktivní cloudová platforma využívající umělou inteligenci k chytré automatizaci firemních procesů a propojení pracovních nástrojů do jednoho plynulého systému.</p>
+        <img src="img/NexaFlow.jpg" alt="Izometrická 3D ilustrace centra umělé inteligence se zářícím mozkem, které propojuje analytické panely, cloudové servery a správu úkolů.">
+      </article>
+
+      <article class="card">
+        <h3>AegisNet</h3>
+        <p>AegisNet je chytrá kyberbezpečnostní platforma využívající umělou inteligenci k nepřetržité ochraně firemních sítí a dat před útoky. V reálném čase odhaluje podezřelou aktivitu, automaticky izoluje hrozby a zajišťuje bezpečný provoz bez zbytečné administrativy.</p>
+        <img src="img/AegisNet.jpg" alt="Izometrická 3D ilustrace kyberbezpečnostní platformy AegisNet se zářícím digitálním štítem chránícím cloudové servery a firemní síť.">
+      </article>
+
+      <h3>Přehled projektů</h3>
       <table>
-        <caption>TODO: popisek tabulky</caption>
+        <caption>Přehled vybraných IT a AI projektů</caption>
         <thead>
           <tr>
-            <th scope="col">Dovednost</th>
-            <th scope="col">Úroveň</th>
+            <th scope="col">Název projektu</th>
+            <th scope="col">Zaměření</th>
+            <th scope="col">Stručný popis</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">TODO: dovednost</th>
-            <td>TODO: úroveň</td>
+            <th scope="row">NexaFlow</th>
+            <td>AI automatizace</td>
+            <td>Cloudová platforma pro chytrou automatizaci firemních procesů a propojení pracovních nástrojů do jednoho systému.</td>
+          </tr>
+          <tr>
+            <th scope="row">AegisNet</th>
+            <td>Kyberbezpečnost</td>
+            <td>Bezpečnostní platforma využívající AI k nepřetržitému monitoringu firemních sítí a okamžité izolaci kybernetických hrozeb.</td>
+          </tr>
+          <tr>
+            <th scope="row">DataPulse</th>
+            <td>Datová analytika</td>
+            <td>Analytický nástroj, který sjednocuje firemní data v reálném čase, odhaluje trendy a vytváří obchodní predikce.</td>
           </tr>
         </tbody>
       </table>
     </section>
 
+    <section id="dovednosti" class="card" aria-labelledby="dovednosti-nadpis">
+      <h2 id="dovednosti-nadpis">Dovednosti</h2>
+      <ul>
+        <li>HTML</li>
+        <li>Základy databází</li>
+        <li>Základy programování</li>
+      </ul>
+    </section>
+
     <section id="kontakt" class="card" aria-labelledby="kontakt-nadpis">
       <h2 id="kontakt-nadpis">Kontakt</h2>
       <address>
-        <!-- TODO: e-mail jako odkaz (mailto:), případně město nebo odkaz na profil -->
-        <p>E-mail: <a href="mailto:TODO">TODO</a></p>
+        <p>E-mail: <a href="mailto:petr.pospichal09@gmail.com">petr.pospichal09@gmail.com</a></p>
       </address>
     </section>
 
   </main>
 
   <footer>
-    <p>© TODO: rok a jméno</p>
+    <p>2026, Petr Pospíchal</p>
   </footer>
 </body>
 </html>
